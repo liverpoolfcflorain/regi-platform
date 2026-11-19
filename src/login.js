@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_ACMUN_API_URL + "/api";
+const API_BASE_URL = import.meta.env.VITE_ACMUN_API_URL;
 
 const form = document.getElementById("loginForm");
 
