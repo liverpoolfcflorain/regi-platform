@@ -1,5 +1,5 @@
-const API_URL = window.ACMUN_API_URL || "http://localhost:3000/api";
-
+const API_URL = import.meta.env.VITE_ACMUN_API_URL || "http://localhost:3000/api";
+console.log(API_URL);
 const COMMITTEE_OPTIONS = [
     "United Nations Security Council (UNSC)",
     "Bashar Al Assad's Cabinet (CRISIS)",
