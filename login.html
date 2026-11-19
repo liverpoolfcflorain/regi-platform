@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ACMUN — Administration</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        :root {
+
+            --blue: #004a6f;
+
+            --dark-blue: #003752;
+
+            --background: #f5f7f8;
+
+            --text: #202124;
+
+            --muted: #6b7280;
+
+            --border: #d9dee2;
+
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                var(--background);
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 24px;
+
+        }
+
+
+        /* ===============================
+           LOGIN
+        ================================ */
+
+        .login-container {
+
+            width: 100%;
+
+            max-width: 410px;
+
+        }
+
+
+        .login-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 10px;
+
+            padding:
+                42px 40px;
+
+            box-shadow:
+                0 4px 18px
+                rgba(0, 0, 0, .07);
+
+        }
+
+
+        /* ===============================
+           LOGO
+        ================================ */
+
+        .logo-container {
+
+            display: flex;
+
+            justify-content: center;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .logo {
+
+            width: 90px;
+
+            height: 90px;
+
+            object-fit: contain;
+
+        }
+
+
+        /* ===============================
+           TITLE
+        ================================ */
+
+        .title {
+
+            text-align: center;
+
+            margin-bottom: 32px;
+
+        }
+
+
+        .title h1 {
+
+            font-size: 24px;
+
+            font-weight: 500;
+
+            color:
+                var(--text);
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .title p {
+
+            font-size: 13px;
+
+            color:
+                var(--muted);
+
+            line-height: 1.5;
+
+        }
+
+
+        /* ===============================
+           FORM
+        ================================ */
+
+        .field {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .field label {
+
+            display: block;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 8px;
+
+            color:
+                var(--text);
+
+        }
+
+
+        .field input {
+
+            width: 100%;
+
+            height: 46px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 6px;
+
+            padding:
+                0 13px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            transition:
+                border .15s,
+                box-shadow .15s;
+
+        }
+
+
+        .field input:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(0, 74, 111, .08);
+
+        }
+
+
+        /* ===============================
+           BUTTON
+        ================================ */
+
+        .login-button {
+
+            width: 100%;
+
+            height: 46px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background:
+                var(--blue);
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            margin-top: 4px;
+
+            transition:
+                background .15s;
+
+        }
+
+
+        .login-button:hover {
+
+            background:
+                var(--dark-blue);
+
+        }
+
+
+        .login-button:disabled {
+
+            opacity: .6;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        /* ===============================
+           ERROR
+        ================================ */
+
+        .error {
+
+            display: none;
+
+            padding: 12px 14px;
+
+            border-radius: 6px;
+
+            background:
+                #fff1f0;
+
+            border:
+                1px solid #ffd4d1;
+
+            color:
+                #b42318;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .error.show {
+
+            display: block;
+
+        }
+
+
+        /* ===============================
+           FOOTER
+        ================================ */
+
+        .footer {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+
+        }
+
+
+        .footer span {
+
+            color:
+                var(--blue);
+
+        }
+
+
+        /* ===============================
+           MOBILE
+        ================================ */
+
+        @media(max-width: 480px) {
+
+            .login-card {
+
+                padding:
+                    35px 24px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="login-container">
+
+
+    <div class="login-card">
+
+
+        <!-- ==================================
+             ACMUN LOGO
+
+             Replace the src with your logo
+        =================================== -->
+
+        <div class="logo-container">
+
+            <img
+                class="logo"
+                src="acmun.png"
+                alt="ACMUN Logo">
+
+        </div>
+
+
+        <div class="title">
+
+            <h1>
+                ACMUN Administration
+            </h1>
+
+            <p>
+                Sign in to manage conference
+                registrations and delegations.
+            </p>
+
+        </div>
+
+
+        <div
+            id="error"
+            class="error">
+        </div>
+
+
+        <form
+            id="loginForm">
+
+
+            <div class="field">
+
+                <label
+                    for="email">
+
+                    Email
+
+                </label>
+
+                <input
+                    id="email"
+                    type="email"
+                    placeholder="admin@acmun.com"
+                    autocomplete="username"
+                    required>
+
+            </div>
+
+
+            <div class="field">
+
+                <label
+                    for="password">
+
+                    Password
+
+                </label>
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required>
+
+            </div>
+
+
+            <button
+                id="loginButton"
+                class="login-button"
+                type="submit">
+
+                Sign in
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+
+    <div class="footer">
+
+        ACMUN XVI ·
+        <span>
+            Secretariat Administration
+        </span>
+
+    </div>
+
+
+</div>
+
+
+<script
+    type="module"
+    src="./src/login.js">
+</script>
+
+
+</body>
+
+</html>

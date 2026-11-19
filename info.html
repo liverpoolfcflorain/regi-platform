@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>ACMUN XVI — Conference Information</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #004a6f;
+            --dark-blue: #003752;
+            --light-blue: #eaf3f7;
+            --text: #202124;
+            --muted: #6b7280;
+            --border: #dadce0;
+            --background: #f8f9fa;
+        }
+
+        body {
+
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                var(--background);
+
+            color:
+                var(--text);
+
+            min-height: 100vh;
+
+        }
+
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        .topbar {
+
+            background:
+                var(--blue);
+
+            color: white;
+
+            padding:
+                18px 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+        }
+
+        .brand img {
+
+            width: 48px;
+
+            height: 48px;
+
+            object-fit: contain;
+
+        }
+
+        .brand-text h1 {
+
+            font-size: 18px;
+
+            font-weight: 600;
+
+        }
+
+        .brand-text p {
+
+            font-size: 12px;
+
+            opacity: .8;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* ================================
+           MAIN
+        ================================= */
+
+        .container {
+
+            width: min(
+                100% - 40px,
+                900px
+            );
+
+            margin:
+                45px auto 70px;
+
+        }
+
+
+        .intro {
+
+            margin-bottom: 35px;
+
+        }
+
+        .intro .eyebrow {
+
+            color:
+                var(--blue);
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+
+        }
+
+        .intro h2 {
+
+            font-size: 34px;
+
+            font-weight: 500;
+
+            margin-bottom: 14px;
+
+        }
+
+        .intro p {
+
+            color:
+                var(--muted);
+
+            line-height: 1.7;
+
+            font-size: 15px;
+
+        }
+
+
+        /* ================================
+           SECTIONS
+        ================================= */
+
+        .section {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 8px;
+
+            margin-bottom: 20px;
+
+            overflow: hidden;
+
+        }
+
+        .section-header {
+
+            padding: 18px 22px;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+        .section-header h3 {
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+        }
+
+        .section-body {
+
+            padding: 22px;
+
+        }
+
+
+        /* ================================
+           COMMITTEES
+        ================================= */
+
+        .committee-list {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 10px;
+
+        }
+
+        .committee {
+
+            border:
+                1px solid var(--border);
+
+            padding: 13px 14px;
+
+            border-radius: 6px;
+
+            display: flex;
+
+            gap: 10px;
+
+            align-items: flex-start;
+
+            line-height: 1.4;
+
+        }
+
+        .committee-number {
+
+            color:
+                var(--blue);
+
+            font-weight: 700;
+
+            min-width: 22px;
+
+        }
+
+        .committee-name {
+
+            font-size: 14px;
+
+        }
+
+        .committee-code {
+
+            color:
+                var(--muted);
+
+            font-size: 12px;
+
+            margin-top: 3px;
+
+        }
+
+
+        /* ================================
+           NOTE
+        ================================= */
+
+        .notice {
+
+            margin-top: 18px;
+
+            padding: 16px;
+
+            background:
+                var(--light-blue);
+
+            border-left:
+                4px solid var(--blue);
+
+            border-radius: 4px;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+
+        }
+
+        .notice strong {
+
+            color:
+                var(--dark-blue);
+
+        }
+
+
+        /* ================================
+           DELEGATION
+        ================================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 15px;
+
+        }
+
+        .stat {
+
+            padding: 20px;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 6px;
+
+        }
+
+        .stat-label {
+
+            font-size: 12px;
+
+            color:
+                var(--muted);
+
+            margin-bottom: 7px;
+
+        }
+
+        .stat-value {
+
+            color:
+                var(--blue);
+
+            font-size: 25px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================================
+           DEADLINES
+        ================================= */
+
+        .deadline {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 15px 0;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+        .deadline:last-child {
+
+            border-bottom: none;
+
+        }
+
+        .deadline-label {
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+        .deadline-date {
+
+            color:
+                var(--blue);
+
+            font-weight: 600;
+
+            font-size: 14px;
+
+        }
+
+
+        /* ================================
+           FEES
+        ================================= */
+
+        .fee-group {
+
+            margin-bottom: 30px;
+
+        }
+
+        .fee-group:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+        .fee-title {
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            margin-bottom: 12px;
+
+        }
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+        }
+
+        th,
+        td {
+
+            text-align: left;
+
+            padding: 12px;
+
+            border:
+                1px solid var(--border);
+
+            font-size: 13px;
+
+        }
+
+        th {
+
+            background:
+                #f5f6f7;
+
+            font-weight: 600;
+
+        }
+
+
+        /* ================================
+           CONTACTS
+        ================================= */
+
+        .contact {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 14px 0;
+
+            border-bottom:
+                1px solid var(--border);
+
+        }
+
+        .contact:last-child {
+
+            border-bottom: none;
+
+        }
+
+        .contact-name {
+
+            font-weight: 600;
+
+            font-size: 14px;
+
+        }
+
+        .contact-phone {
+
+            color:
+                var(--blue);
+
+            font-size: 14px;
+
+        }
+
+
+        /* ================================
+           BUTTON
+        ================================= */
+
+        .action {
+
+            text-align: center;
+
+            margin-top: 35px;
+
+        }
+
+        .register-button {
+
+            display: inline-block;
+
+            padding:
+                14px 30px;
+
+            border: none;
+
+            border-radius: 6px;
+
+            background:
+                var(--blue);
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                background .15s,
+                transform .15s;
+
+        }
+
+        .register-button:hover {
+
+            background:
+                var(--dark-blue);
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+
+            text-align: center;
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+
+            padding-bottom: 35px;
+
+        }
+
+
+        /* ================================
+           MOBILE
+        ================================= */
+
+        @media(max-width: 650px) {
+
+            .topbar {
+
+                padding: 15px 18px;
+
+            }
+
+            .container {
+
+                width:
+                    min(
+                        100% - 24px,
+                        900px
+                    );
+
+                margin-top: 30px;
+
+            }
+
+            .intro h2 {
+
+                font-size: 27px;
+
+            }
+
+            .committee-list {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .stats {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .deadline {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap: 5px;
+
+            }
+
+            .contact {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap: 5px;
+
+            }
+
+            table {
+
+                font-size: 12px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="brand">
+
+        <!-- =================================
+             ADD YOUR ACMUN LOGO HERE
+        ================================== -->
+
+        <img
+            src="acmun.png"
+            alt="ACMUN Logo">
+
+        <div class="brand-text">
+
+            <h1>
+                ACMUN XVI
+            </h1>
+
+            <p>
+                Aitchison College Model United Nations
+            </p>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <section class="intro">
+
+        <div class="eyebrow">
+            Conference Information
+        </div>
+
+        <h2>
+            Aitchison College Model United Nations
+        </h2>
+
+        <p>
+
+            The Aitchison College Model United Nations
+            Conference will be held from the
+            <strong>29th to the 31st of January, 2026.</strong>
+            The following are the details regarding
+            the conference.
+
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================
+         COMMITTEES
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>
+                Committees
+            </h3>
+
+        </div>
+
+
+        <div class="section-body">
+
+            <div class="committee-list">
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        1
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            United Nations Security Council
+                        </div>
+
+                        <div class="committee-code">
+                            UNSC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        2
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            Bashar Al Assad's Cabinet
+                        </div>
+
+                        <div class="committee-code">
+                            CRISIS
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        3
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            The Roman Consulate
+                        </div>
+
+                        <div class="committee-code">
+                            RC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        4
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            The Paris Peace Conference
+                        </div>
+
+                        <div class="committee-code">
+                            PPC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        5
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            The Sovereign Soviet Assembly
+                        </div>
+
+                        <div class="committee-code">
+                            SSA
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        6
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            The Joint International Tribunal
+                        </div>
+
+                        <div class="committee-code">
+                            JIT
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        7
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            United Nations Human Rights Committee
+                        </div>
+
+                        <div class="committee-code">
+                            UNHRC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        8
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            United Nations Office on Drugs and Crime
+                        </div>
+
+                        <div class="committee-code">
+                            UNODC
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        9
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            Social, Humanitarian and Cultural Committee
+                        </div>
+
+                        <div class="committee-code">
+                            SOCHUM
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="committee">
+
+                    <span class="committee-number">
+                        10
+                    </span>
+
+                    <div>
+
+                        <div class="committee-name">
+                            Pakistan National Assembly
+                        </div>
+
+                        <div class="committee-code">
+                            PNA
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="notice">
+
+                <strong>Important:</strong>
+
+                The United Nations Security Council
+                and Bashar Al Assad's Cabinet will be
+                serving as dual & compulsory committees.
+                The Roman Consulate will also be a
+                compulsory committee.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         DELEGATION
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>
+                Delegation Details
+            </h3>
+
+        </div>
+
+        <div class="section-body">
+
+            <div class="stats">
+
+                <div class="stat">
+
+                    <div class="stat-label">
+                        Minimum Delegates
+                    </div>
+
+                    <div class="stat-value">
+                        8
+                    </div>
+
+                </div>
+
+                <div class="stat">
+
+                    <div class="stat-label">
+                        Maximum Delegates
+                    </div>
+
+                    <div class="stat-value">
+                        12
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         DEADLINES
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>
+                Registration Deadlines
+            </h3>
+
+        </div>
+
+        <div class="section-body">
+
+            <div class="deadline">
+
+                <span class="deadline-label">
+                    Early Bird Registration Deadline
+                </span>
+
+                <span class="deadline-date">
+                    15th December
+                </span>
+
+            </div>
+
+            <div class="deadline">
+
+                <span class="deadline-label">
+                    Normal Registration Deadline
+                </span>
+
+                <span class="deadline-date">
+                    27th January
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         FEES
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>
+                Registration Fees
+            </h3>
+
+        </div>
+
+        <div class="section-body">
+
+
+            <div class="fee-group">
+
+                <div class="fee-title">
+                    Early Bird — Local
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Registration Type</th>
+                        <th>Fee</th>
+                    </tr>
+
+                    <tr>
+                        <td>Delegation Fee</td>
+                        <td>5,500 PKR</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delegate Fee</td>
+                        <td>5,000 PKR</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+
+            <div class="fee-group">
+
+                <div class="fee-title">
+                    Normal — Local
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Registration Type</th>
+                        <th>Fee</th>
+                    </tr>
+
+                    <tr>
+                        <td>Delegation Fee</td>
+                        <td>7,000 PKR</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delegate Fee</td>
+                        <td>6,000 PKR</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+
+            <div class="fee-group">
+
+                <div class="fee-title">
+                    Early Bird — International
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Registration Type</th>
+                        <th>Fee</th>
+                    </tr>
+
+                    <tr>
+                        <td>Delegation Fee</td>
+                        <td>$40</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delegate Fee</td>
+                        <td>$45</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+
+
+            <div class="fee-group">
+
+                <div class="fee-title">
+                    Normal — International
+                </div>
+
+                <table>
+
+                    <tr>
+                        <th>Registration Type</th>
+                        <th>Fee</th>
+                    </tr>
+
+                    <tr>
+                        <td>Delegation Fee</td>
+                        <td>$50</td>
+                    </tr>
+
+                    <tr>
+                        <td>Delegate Fee</td>
+                        <td>$55</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         CONTACT
+    ====================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h3>
+                Registration Queries
+            </h3>
+
+        </div>
+
+        <div class="section-body">
+
+
+            <div class="contact">
+
+                <span class="contact-name">
+                    Muhammad Bahawal Hussain Chattha
+                </span>
+
+                <span class="contact-phone">
+                    +92 300 2922213
+                </span>
+
+            </div>
+
+
+            <div class="contact">
+
+                <span class="contact-name">
+                    Hamza Imran Alizai
+                </span>
+
+                <span class="contact-phone">
+                    +92 333 4252229
+                </span>
+
+            </div>
+
+
+            <div class="contact">
+
+                <span class="contact-name">
+                    Shahryar Qureshi
+                </span>
+
+                <span class="contact-phone">
+                    +92 312 4497774
+                </span>
+
+            </div>
+
+
+            <div class="contact">
+
+                <span class="contact-name">
+                    Jalal Haider Cheema
+                </span>
+
+                <span class="contact-phone">
+                    +92 345 9406666
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <div class="action">
+
+        <a
+            href="index.html"
+            class="register-button">
+
+            Begin Registration
+
+        </a>
+
+    </div>
+
+
+</main>
+
+
+
+<footer>
+
+    ACMUN XVI · Aitchison College
+
+</footer>
+
+
+</body>
+
+</html>
