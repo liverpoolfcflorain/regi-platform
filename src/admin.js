@@ -1,6 +1,5 @@
 
-// Set window.ACMUN_API_URL before this module if the backend is hosted elsewhere.
-const API_URL = (window.ACMUN_API_URL || "http://localhost:3000/api").replace(/\/$/, "");
+const API_URL = import.meta.env.VITE_ACMUN_API_URL + "/api";
 
 /* ==========================================================
    STATE
