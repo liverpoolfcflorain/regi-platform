@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000";
+const API_URL = import.meta.env.VITE_ACMUN_API_URL || "http://localhost:3000/api";
 
 const form = document.getElementById("loginForm");
 
