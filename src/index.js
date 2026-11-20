@@ -1,5 +1,5 @@
 const API_URL = import.meta.env.VITE_ACMUN_API_URL + "/api";
-console.log(API_URL);
+
 const COMMITTEE_OPTIONS = [
     "United Nations Security Council (UNSC)",
     "Bashar Al Assad's Cabinet (CRISIS)",
@@ -91,14 +91,7 @@ if (registrationApp) {
 
 function load() {
 
-    console.log("ACMUN loader started");
 
-
-    /*
-        Safety check.
-        If there is no loader, go directly
-        to the information page.
-    */
 
     if (!loader) {
 
@@ -118,9 +111,6 @@ function load() {
 
     setTimeout(() => {
 
-        console.log(
-            "Hiding loader..."
-        );
 
         loader.classList.add("hide");
 
@@ -147,15 +137,6 @@ function load() {
 ============================================================ */
 
 function showInformation() {
-
-    console.log(
-        "Showing ACMUN information page"
-    );
-
-
-    /*
-        Make sure registration form is hidden.
-    */
 
     if (registrationApp) {
 
