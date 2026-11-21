@@ -779,6 +779,26 @@ color: #18794e;
             background: #d8b56a;
         }
 
+
+        .payment-completed-btn {
+            background: #137333;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 22px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .payment-completed-btn:hover {
+            background: #0d5c28;
+        }
+
+        .payment-completed-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
         .save-btn:disabled,
         .complete-btn:disabled,
         .payment-email-btn:disabled {
@@ -1081,8 +1101,8 @@ color: #18794e;
         .payment-box { background: #f1f7f9; border-color: #d4e5eb; }
         .delegate-editor { background: #fff; border-color: var(--border); }
         .modal-footer { padding: 18px 28px; background: #fff; }
-        .save-btn, .complete-btn, .payment-email-btn { transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-        .save-btn:hover, .complete-btn:hover, .payment-email-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(7, 59, 85, .16); }
+        .save-btn, .complete-btn, .payment-email-btn, .payment-completed-btn { transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+        .save-btn:hover, .complete-btn:hover, .payment-email-btn:hover, .payment-completed-btn:hover { transform: translateY(-1px); box-shadow: 0 5px 12px rgba(7, 59, 85, .16); }
 
         @media (max-width: 900px) {
             #teamGrid { overflow-x: auto; padding-bottom: 5px; }
@@ -1659,6 +1679,16 @@ color: #18794e;
                     type="button">
 
                     Send Payment Email
+
+                </button>
+
+
+                <button
+                    class="payment-completed-btn"
+                    id="paymentCompletedButton"
+                    type="button">
+
+                    Confirm Payment Received
 
                 </button>
 
