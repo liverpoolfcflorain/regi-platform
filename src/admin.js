@@ -1388,6 +1388,62 @@ async function sendPaymentEmail() {
 
 
 /* ==========================================================
+   PAYMENT COMPLETED CONFIRMATION
+========================================================== */
+const paymentCompletedButton = document.getElementById("paymentCompletedButton");
+
+if (paymentCompletedButton) {
+    paymentCompletedButton.addEventListener("click", sendPaymentCompletedEmail);
+}
+
+async function sendPaymentCompletedEmail() {
+    if (!currentRegistration) {
+        alert("Please open a registration first.");
+        return;
+    }
+
+    const button = paymentCompletedButton;
+    const amount = Number(getValue("money"));
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter a valid payment amount first.");
+        return;
+    }
+
+    if (!window.confirm(`Confirm that PKR ${amount.toLocaleString()} has been received and email the payment confirmation?`)) {
+        return;
+    }
+
+    if (button) {
+        button.disabled = true;
+        button.textContent = "Sending...";
+    }
+
+    try {
+        const result = await apiRequest(
+            `/admin/registrations/${encodeURIComponent(currentRegistration.id)}/payment-completed`,
+            {
+                method: "POST",
+                body: JSON.stringify({ amount })
+            }
+        );
+
+        alert(result.message || "Payment-completed email sent successfully.");
+    } catch (error) {
+        console.error("PAYMENT COMPLETED EMAIL ERROR:", error);
+        alert(error.message || "Unable to send payment confirmation.");
+    } finally {
+        if (button) {
+            button.disabled = false;
+            button.textContent = "Confirm Payment Received";
+        }
+    }
+}
+
+window.sendPaymentCompletedEmail = sendPaymentCompletedEmail;
+
+
+/* ==========================================================
    SEARCH
 ========================================================== */
 
