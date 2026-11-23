@@ -25,9 +25,11 @@ let authToken =
 async function apiRequest(endpoint, options = {}) {
     const response = await fetch(`${API_URL}${endpoint}`, {
         ...options,
-        credentials: "include",
         headers: {
             ...(options.body ? { "Content-Type": "application/json" } : {}),
+            ...(sessionStorage.getItem("acmun_access_token")
+                ? { "Authorization": `Bearer ${sessionStorage.getItem("acmun_access_token")}` }
+                : {}),
             ...(options.headers || {})
         }
     });
@@ -50,7 +52,7 @@ async function apiRequest(endpoint, options = {}) {
 ========================================================== */
 
 async function checkAdminAccess() {
-    // Authentication, if enabled on the server, is handled by the backend cookie.
+    // Admin authentication is enforced by the backend using the bearer token.
     await loadRegistrations();
 }
 
@@ -1338,24 +1340,11 @@ async function sendPaymentEmail() {
 
     try {
         console.log(currentRegistration.id)
-        const response =
-            console.log("Payment email route registered");
-        console.log(API_URL);
-        await fetch(
-
-            `${API_URL}/admin/registrations/${currentRegistration.id}/payment-email`,
-
+        await apiRequest(
+            `/admin/registrations/${encodeURIComponent(currentRegistration.id)}/payment-email`,
             {
                 method: "POST",
-                credentials: "include",
-                headers: {
-                    "Content-Type":
-                        "application/json"
-                },
-                body:
-                    JSON.stringify({
-                        amount
-                    })
+                body: JSON.stringify({ amount })
             }
         );
 

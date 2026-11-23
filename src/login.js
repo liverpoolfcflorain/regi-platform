@@ -39,7 +39,6 @@ if (!form) {
                     headers: {
                         "Content-Type": "application/json"
                     },
-                    credentials: "include",
                     body: JSON.stringify({
                         email,
                         password
@@ -56,6 +55,12 @@ if (!form) {
                     "Invalid email or password."
                 );
             }
+
+            // Keep the bearer token for this tab; sessionStorage clears when the tab session ends.
+            if (!loginData.accessToken) {
+                throw new Error("Login succeeded but the server did not return an access token.");
+            }
+            sessionStorage.setItem("acmun_access_token", loginData.accessToken);
 
             // Login successful.
             window.location.replace("/admin.html");
